@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02C_10_13
+namespace _03C_10_20
 {
     public class Sol
     {
