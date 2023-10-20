@@ -19,8 +19,8 @@ namespace _03C_10_20
 
         public void setTest()
         {
-            x = new float[] { -2, -1, 0, 1, 2, 3, 4};
-            //x = new float[] { -2, -1.2f, 0.4f, 1, 2, 3, 4 };
+            //x = new float[] { -2, -1, 0, 1, 2, 3, 4};
+            x = new float[] { -2, -1.2f, 0.4f, 1, 2, 3, 4 };
         }
 
         public float fadec()
@@ -43,7 +43,7 @@ namespace _03C_10_20
             string toReturn = "";
             for (int i = 0; i < Ag.n; i++)
                 toReturn += x[i] + " ";
-            toReturn += "\n" + "fadec: " + fadec();
+            toReturn += "fadec: " + fadec();
             return toReturn;
         }
     }

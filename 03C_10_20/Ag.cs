@@ -12,6 +12,7 @@ namespace _03C_10_20
         public static int N, n, k;
         public static int[] T;
         public static int[,] A;
+        public static int maxTime, crtTime;
         public static Random rnd = new Random();
 
         public static void LoadFromFile(string fileName)
@@ -53,7 +54,7 @@ namespace _03C_10_20
 
         public static float random()
         {
-            return (float)rnd.NextDouble();
+            return (float)rnd.NextDouble() * 20 - 10;
         }
     }
 }

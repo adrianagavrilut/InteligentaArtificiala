@@ -8,28 +8,39 @@ namespace _03C_10_20
 {
     class Program
     {
-        public static Eco demo;
+        public static Eco ecosystem;
 
         static void Main(string[] args)
         {
             Ag.LoadFromFile(@"..\..\TextFile1.txt");
             Ag.N = 1000;
             Ag.k = 20;
+            Ag.crtTime = 0;
+            Ag.maxTime = 10000;
 
-            /*demo = new Eco();
+            ecosystem = new Eco();
+            foreach (string s in ecosystem.View())
+                Console.WriteLine(s);
+            Console.WriteLine();
 
-            for (int i = 0; i < 100; i++)
+            ecosystem.Ord();
+            foreach (string s in ecosystem.View())
+                Console.WriteLine(s);
+            Console.WriteLine();
+
+            do
             {
-                demo.Ord();
-                demo.Transfer();
-                demo.Update();
-            }
-            demo.Ord();
-            Console.WriteLine(demo.View());*/
+                ecosystem.Ord();
+                ecosystem.Transfer();
+                ecosystem.Update();
+                Ag.crtTime++;
+                ecosystem.Ord();
+                
+                Console.WriteLine();
+                foreach (string s in ecosystem.View())
+                    Console.WriteLine(s);
 
-            Sol test = new Sol();
-            test.setTest();
-            Console.WriteLine(test.View());
+            } while (Ag.crtTime < Ag.maxTime);
 
             Console.ReadKey();
         }

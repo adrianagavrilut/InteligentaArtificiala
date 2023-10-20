@@ -47,9 +47,12 @@ namespace _03C_10_20
 
         }
 
-        public string View()
+        public List<string> View()
         {
-            return population[0].View();
+            List<string> toReturn = new List<string>();
+            for (int i = 0; i < 100; i++)
+                toReturn.Add(population[i].View());
+            return toReturn;
         }
     }
 }
