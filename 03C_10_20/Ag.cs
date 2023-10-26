@@ -44,11 +44,14 @@ namespace _03C_10_20
         public static Sol crossOver(Sol par1, Sol par2)
         {
             Sol toReturn = new Sol();
+
             int x = Ag.rnd.Next(1, Ag.n - 1);
+
             for (int i = 0; i < x; i++)
                 toReturn.x[i] = par1.x[i];
             for (int i = x; i < Ag.n; i++)
                 toReturn.x[i] = par2.x[i];
+
             return toReturn;
         }
 

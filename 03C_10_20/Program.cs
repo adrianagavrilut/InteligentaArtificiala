@@ -23,22 +23,17 @@ namespace _03C_10_20
                 Console.WriteLine(s);
             Console.WriteLine();
 
-            ecosystem.Ord();
-            foreach (string s in ecosystem.View())
-                Console.WriteLine(s);
-            Console.WriteLine();
-
             do
             {
                 ecosystem.Ord();
-                ecosystem.Transfer();
-                ecosystem.Update();
-                Ag.crtTime++;
-                ecosystem.Ord();
-                
+
                 Console.WriteLine();
                 foreach (string s in ecosystem.View())
                     Console.WriteLine(s);
+
+                ecosystem.Transfer();
+                ecosystem.Update();
+                Ag.crtTime++;
 
             } while (Ag.crtTime < Ag.maxTime);
 

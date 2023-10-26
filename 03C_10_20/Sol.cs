@@ -20,7 +20,8 @@ namespace _03C_10_20
         public void setTest()
         {
             //x = new float[] { -2, -1, 0, 1, 2, 3, 4};
-            x = new float[] { -2, -1.2f, 0.4f, 1, 2, 3, 4 };
+            //x = new float[] { -2, -1.2f, 0.4f, 1, 2, 3, 4 };
+            x = new float[] { -2.01F, -0.999f, 0f, 10.012F, 2, 13, 400 };
         }
 
         public float fadec()
