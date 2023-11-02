@@ -15,7 +15,6 @@ namespace _04C_10_27_graf
         public static PictureBox display;
         public static Color color = Color.BlanchedAlmond;
         public static Graph demo;
-        public static Random rnd = new Random();
 
         public static void InitGraph(PictureBox t)
         {
@@ -44,10 +43,5 @@ namespace _04C_10_27_graf
             }
             return null;
         }
-
-       /* public static double GetDistance(double edgeStart, double edgeEnd)
-        {
-            return Math.Sqrt((Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2))); 
-        }*/
     }
 }
