@@ -19,9 +19,10 @@ namespace _03C_10_20
             Ag.maxTime = 10000;
 
             ecosystem = new Eco();
-            foreach (string s in ecosystem.View())
+
+            /*foreach (string s in ecosystem.View())
                 Console.WriteLine(s);
-            Console.WriteLine();
+            Console.WriteLine();*/
 
             do
             {

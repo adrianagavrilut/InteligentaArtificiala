@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01L_10_12_ruleta", "01L_10_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03C_10_20", "03C_10_20\03C_10_20.csproj", "{30A36A67-F5B5-46C9-A5A3-911F7F972F83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04C_10_27_graf", "04C_10_27_graf\04C_10_27_graf.csproj", "{74F3D763-5E76-40B7-A5BE-4E6B55D37A85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{30A36A67-F5B5-46C9-A5A3-911F7F972F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30A36A67-F5B5-46C9-A5A3-911F7F972F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30A36A67-F5B5-46C9-A5A3-911F7F972F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F3D763-5E76-40B7-A5BE-4E6B55D37A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F3D763-5E76-40B7-A5BE-4E6B55D37A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F3D763-5E76-40B7-A5BE-4E6B55D37A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F3D763-5E76-40B7-A5BE-4E6B55D37A85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
