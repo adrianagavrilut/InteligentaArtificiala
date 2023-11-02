@@ -29,13 +29,12 @@ namespace _04C_10_27_graf
             string buffer;
             for (int i = 0; i < n; i++)
             {
-                buffer = load.ReadLine();
-                Vertex local = new Vertex(buffer);
+                Vertex local = new Vertex(i.ToString());
                 local.idx = i;
                 Vertices.Add(local);
             }
             while ((buffer = load.ReadLine()) != null)
-                Edges.Add(new Edge(buffer));
+                Edges.Add(new Edge(buffer, Vertices));
             load.Close();
             foreach (Edge edge in Edges)
             {
@@ -50,26 +49,18 @@ namespace _04C_10_27_graf
         {
             Graph toReturn = new Graph();
             foreach (Vertex vertex in Vertices)
-            {
                 toReturn.Vertices.Add(new Vertex(vertex.name));
-            }
             foreach (Edge edge in Edges)
-            {
-                toReturn.Edges.Add(new Edge(edge.data));//,toReturn.Vertices));
-            }
+                toReturn.Edges.Add(new Edge(edge.data, toReturn.Vertices));//,toReturn.Vertices));
             return toReturn;
         }
 
         public void Draw(Graphics h)
         {
-            foreach (Vertex v in Vertices)
-            {
-                v.Draw(h);
-            }
             foreach (Edge e in Edges)
-            {
                 e.Draw(h);
-            }
+            foreach (Vertex v in Vertices)
+                v.Draw(h);
         }
 
         public List<string> View(System.Windows.Forms.ListBox A)

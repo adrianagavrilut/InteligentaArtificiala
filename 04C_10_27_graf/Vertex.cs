@@ -16,8 +16,8 @@ namespace _04C_10_27_graf
         public Vertex(string name)
         {
             this.name = name;
-            this.location = Eco.GetPoint();
-            //this.location = new Point(Eco.rnd.Next(50, Engine.display.Width - 50), Eco.rnd.Next(50, Engine.display.Height - 50));
+            //this.location = Eco.GetPoint();
+            this.location = new Point(Eco.rnd.Next(50, Engine.display.Width - 50), Eco.rnd.Next(50, Engine.display.Height - 50));
             idx = -1;
         }
 
@@ -35,8 +35,9 @@ namespace _04C_10_27_graf
 
         public void Draw(Graphics h)
         {
-            h.DrawEllipse(Pens.Black, location.X - 5, location.Y - 5, 11, 11);
-            h.DrawString(name, new Font("Arial", 12, FontStyle.Regular), new SolidBrush(Color.DarkBlue), location.X, location.Y);
+            h.DrawEllipse(new Pen(Color.DarkBlue, 3), location.X - 12, location.Y - 12, 24, 24);
+            h.FillEllipse(new SolidBrush(Color.Ivory), location.X - 12, location.Y - 12, 24, 24);
+            h.DrawString(name, new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Crimson), location.X - 7, location.Y - 8);
         }
 
         //mutatie (sa duci mai incolo punctul)

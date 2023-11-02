@@ -13,7 +13,7 @@ namespace _04C_10_27_graf
     public partial class Form1 : Form
     {
         /// <summary>
-        /// Dispersia unui graf: Reprezentarea unui graf astfel incat lungimea muchiilor (distanta dintre noduri)
+        /// Dispersia unui graf: Reprezentarea unui graf astfel incat lungimea muchiilor
         /// sa fie cat mai aproape de ponderi / costuri.
         /// </summary>
         public Form1()
