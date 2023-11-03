@@ -14,7 +14,6 @@ namespace _04C_10_27_graf
         public static Bitmap bmp;
         public static PictureBox display;
         public static Color color = Color.Ivory;
-        public static Graph demo;
 
         public static void InitGraph(PictureBox t)
         {

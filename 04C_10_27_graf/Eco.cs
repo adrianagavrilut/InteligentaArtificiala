@@ -9,12 +9,12 @@ namespace _04C_10_27_graf
 {
     public static class Eco
     {
-        public static int maxX, maxY, N, k;
+        public static int maxX = 700, maxY = 550, N = 1000, k = 10; //N-dimensiunea populatiei, k-dimensiunea populatiei intermediare
         public static Random rnd = new Random();
 
         public static Point GetPoint()
         {
-            return new Point(rnd.Next(maxX, rnd.Next(maxY)));
+            return new Point(rnd.Next(maxX), rnd.Next(maxY));
         }
 
         public static double GetDistance(Point a, Point b)

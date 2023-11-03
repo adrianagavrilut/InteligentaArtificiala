@@ -16,8 +16,8 @@ namespace _04C_10_27_graf
         public Vertex(string name)
         {
             this.name = name;
-            //this.location = Eco.GetPoint();
-            this.location = new Point(Eco.rnd.Next(50, Engine.display.Width - 50), Eco.rnd.Next(50, Engine.display.Height - 50));
+            this.location = Eco.GetPoint();
+            //this.location = new Point(Eco.rnd.Next(50, Engine.display.Width - 50), Eco.rnd.Next(50, Engine.display.Height - 50));
             idx = -1;
         }
 

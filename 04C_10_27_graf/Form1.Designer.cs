@@ -43,7 +43,7 @@ namespace _04C_10_27_graf
             this.pictureBox1.Location = new System.Drawing.Point(13, 14);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(863, 615);
+            this.pictureBox1.Size = new System.Drawing.Size(944, 687);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -51,7 +51,7 @@ namespace _04C_10_27_graf
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Perpetua", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(894, 9);
+            this.label1.Location = new System.Drawing.Point(967, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 28);
             this.label1.TabIndex = 1;
@@ -71,7 +71,7 @@ namespace _04C_10_27_graf
             this.button1.BackColor = System.Drawing.Color.Linen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Perpetua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(899, 397);
+            this.button1.Location = new System.Drawing.Point(972, 397);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 55);
@@ -85,10 +85,10 @@ namespace _04C_10_27_graf
             this.listBox1.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 26;
-            this.listBox1.Location = new System.Drawing.Point(899, 44);
+            this.listBox1.Location = new System.Drawing.Point(972, 44);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 290);
+            this.listBox1.Size = new System.Drawing.Size(290, 342);
             this.listBox1.TabIndex = 4;
             // 
             // button2
@@ -96,7 +96,7 @@ namespace _04C_10_27_graf
             this.button2.BackColor = System.Drawing.Color.PapayaWhip;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Perpetua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(899, 484);
+            this.button2.Location = new System.Drawing.Point(972, 484);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(175, 55);
@@ -108,7 +108,7 @@ namespace _04C_10_27_graf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 640);
+            this.ClientSize = new System.Drawing.Size(1275, 712);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);

@@ -21,18 +21,27 @@ namespace _04C_10_27_graf
             InitializeComponent();
         }
 
+        Ag demoDG;
+        Graph demoG;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Engine.InitGraph(pictureBox1);
-            Engine.demo = new Graph();
-            Engine.demo.LoadFromFile(@"../../TextFile1.txt");
-            Engine.demo.View(listBox1);
+            demoDG = new Ag();
+            demoDG.initPopulation();
+            demoDG.Selection();
+            demoDG.Draw(Engine.grp, listBox1);
+            /*demoG = new Graph();
+            demoG.LoadFromFile(@"..\..\TextFile1.txt");
+            demoG.View(listBox1);
+            demoG.Draw(Engine.grp);*/
+
             Engine.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Engine.demo.Draw(Engine.grp);
+            
             Engine.Refresh();
         }
     }

@@ -14,11 +14,20 @@ namespace _04C_10_27_graf
         public float cost;
         public string data;
 
-        public Edge(string data, List<Vertex> Vertices)//, List<Vertex> vertices, dar eu am Search
+       /* public Edge(string data, Graph T)//, List<Vertex> vertices, dar eu am Search
         {
             string[] buffer = data.Split(' ');
-            start = Engine.Search(buffer[0], Engine.demo); // start = Vertices[int.Parse(buffer[0])];
-            end = Engine.Search(buffer[1], Engine.demo);
+            start = Engine.Search(buffer[0], T); // start = Vertices[int.Parse(buffer[0])];
+            end = Engine.Search(buffer[1], T);
+            cost = float.Parse(buffer[2]);
+            this.data = data;
+        }*/
+
+        public Edge(string data, Graph T)
+        {
+            string[] buffer = data.Split(' ');
+            start = T.Vertices[int.Parse(buffer[0])];
+            end = T.Vertices[int.Parse(buffer[1])];
             cost = float.Parse(buffer[2]);
             this.data = data;
         }
