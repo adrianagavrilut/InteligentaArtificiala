@@ -9,7 +9,7 @@ namespace _05C_11_10_AOP
 {
     public class Map
     {
-        int[,] values;
+        public int[,] values;
         public int n { get { return values.GetLength(0); } }
         public int m { get { return values.GetLength(1); } }
 
@@ -41,14 +41,17 @@ namespace _05C_11_10_AOP
                 }
         }
 
-        public static void LoadFromFile(string fileName)
+        public int[,] ConvertToMatrix(Map map)
         {
-
-        }
-
-        public static void SaveToFile(string fileName)
-        {
-
+            int[,] matrixToReturn = new int[map.n, map.m];
+            for (int i = 0; i < map.n; i++)
+            {
+                for (int j = 0; j < map.m; j++)
+                {
+                    matrixToReturn[i, j] = map.values[i, j];
+                }
+            }
+            return matrixToReturn;
         }
     }
 }

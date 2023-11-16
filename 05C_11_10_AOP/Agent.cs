@@ -11,10 +11,20 @@ namespace _05C_11_10_AOP
     {
         public Point location;
         public int ID;
+        public List<Point> path;
+        Point startPoint;
+        Point endPoint;
 
         public virtual void Draw(Graphics handler)
         {
             handler.DrawEllipse(Pens.Black, location.X * Engine.deltaX - 5, location.Y * Engine.deltaY - 5, 11, 11);
+        }
+
+        public virtual void DeterminePath()
+        {            
+            startPoint = new Point(Engine.matrix[0, 0]);
+            endPoint = new Point(Engine.matrix[Engine.n - 1, Engine.m - 1]);
+            path = Engine.GetPathLee(startPoint, endPoint);
         }
     }
 

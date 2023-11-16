@@ -32,6 +32,9 @@ namespace _05C_11_10_AOP
         public static Map demoMap;
         public static Random rnd = new Random();
         public static List<Agent> agents = new List<Agent>();
+        public static int[,] matrix;
+        public static int n;
+        public static int m;
 
         public static void InitDemo()
         {
@@ -63,6 +66,80 @@ namespace _05C_11_10_AOP
             demoMap.Draw(handler);
             foreach (Agent agent in agents)
                 agent.Draw(handler);
+        }
+
+        public static void InitLee()
+        {
+            matrix = demoMap.ConvertToMatrix(demoMap);
+            n = matrix.GetLength(0);
+            m = matrix.GetLength(1);
+            foreach (Agent agent in agents)
+                agent.DeterminePath();
+        }
+
+        public static List<Point> GetPathLee(Point start, Point end)
+        {
+            getMatrixForPathLee(start, end);
+            List<Point> pathLee = new List<Point>();
+            TriData crnt = new TriData(end.X, end.Y, matrix[end.X, end.Y]);
+            pathLee.Add(end);
+            while (crnt.v > 2)
+            {
+                if (crnt.l - 1 >= 0 && matrix[crnt.l - 1, crnt.c] == crnt.v - 1)
+                {
+                    pathLee.Add(new Point(crnt.l - 1, crnt.c));
+                    crnt.l--;
+                }
+                else if (crnt.l + 1 < Engine.n && matrix[crnt.l + 1, crnt.c] == crnt.v - 1)
+                {
+                    pathLee.Add(new Point(crnt.l + 1, crnt.c));
+                    crnt.l++;
+                }
+                else if (crnt.c - 1 >= 0 && matrix[crnt.l, crnt.c - 1] == crnt.v - 1)
+                {
+                    pathLee.Add(new Point(crnt.l, crnt.c - 1));
+                    crnt.c--;
+                }
+                else if (crnt.c + 1 < Engine.m && matrix[crnt.l, crnt.c + 1] == crnt.v - 1)
+                {
+                    pathLee.Add(new Point(crnt.l, crnt.c + 1));
+                    crnt.c++;
+                }
+                crnt.v--;
+            }
+            return pathLee;
+        }
+
+        public static void getMatrixForPathLee(Point start, Point end)
+        {
+            Queue A = new Queue();
+            A.Push(new TriData(start.X, start.Y, 2));
+            matrix[start.X, start.Y] = 2;
+
+            while (!A.IsEmpty())
+            {
+                TriData t = A.Pop();
+                if (t.l - 1 >= 0 && matrix[t.l - 1, t.c] == 0)//N
+                {
+                    A.Push(new TriData(t.l - 1, t.c, t.v + 1));
+                    matrix[t.l - 1, t.c] = t.v + 1;
+                }
+                if (t.l + 1 < n && matrix[t.l + 1, t.c] == 0)//S
+                {
+                    A.Push(new TriData(t.l + 1, t.c, t.v + 1));
+                    matrix[t.l + 1, t.c] = t.v + 1;
+                }
+                if (t.c - 1 >= 0 && matrix[t.l, t.c - 1] == 0)//V
+                {
+                    A.Push(new TriData(t.l, t.c - 1, t.v + 1));
+                    matrix[t.l, t.c - 1] = t.v + 1;
+                }
+                if (t.c + 1 < m && matrix[t.l, t.c + 1] == 0)//E
+                {
+                    A.Push(new TriData(t.l, t.c + 1, t.v + 1));
+                    matrix[t.l, t.c + 1] = t.v + 1;
+                }
+            }
         }
     }
 }
