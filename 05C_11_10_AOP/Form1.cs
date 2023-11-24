@@ -23,7 +23,7 @@ namespace _05C_11_10_AOP
             Engine.InitDemo();
             Engine.Draw(Engine.grp);
 
-            //Engine.InitLee();
+            Engine.InitLee();
 
             Engine.Refresh();
         }

@@ -79,11 +79,11 @@ namespace _05C_11_10_AOP
 
         public static List<Point> GetPathLee(Point start, Point end)
         {
-            getMatrixForPathLee(start, end);
+            GetMatrixForPathLee(start);
             List<Point> pathLee = new List<Point>();
             TriData crnt = new TriData(end.X, end.Y, matrix[end.X, end.Y]);
             pathLee.Add(end);
-            while (crnt.v > 2)
+            while (crnt.v > 1)
             {
                 if (crnt.l - 1 >= 0 && matrix[crnt.l - 1, crnt.c] == crnt.v - 1)
                 {
@@ -110,11 +110,11 @@ namespace _05C_11_10_AOP
             return pathLee;
         }
 
-        public static void getMatrixForPathLee(Point start, Point end)
+        public static void GetMatrixForPathLee(Point start)
         {
             Queue A = new Queue();
-            A.Push(new TriData(start.X, start.Y, 2));
-            matrix[start.X, start.Y] = 2;
+            A.Push(new TriData(start.X, start.Y, 1));
+            matrix[start.X, start.Y] = 1;
 
             while (!A.IsEmpty())
             {

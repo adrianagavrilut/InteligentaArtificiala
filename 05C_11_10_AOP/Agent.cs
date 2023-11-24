@@ -21,7 +21,8 @@ namespace _05C_11_10_AOP
         }
 
         public virtual void DeterminePath()
-        {            
+        {
+            //startPoint = location;
             startPoint = new Point(Engine.matrix[0, 0]);
             endPoint = new Point(Engine.matrix[Engine.n - 1, Engine.m - 1]);
             path = Engine.GetPathLee(startPoint, endPoint);
