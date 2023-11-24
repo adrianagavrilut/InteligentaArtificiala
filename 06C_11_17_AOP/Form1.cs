@@ -23,7 +23,7 @@ namespace _06C_11_17_AOP
             Engine.InitDemo();
             Engine.Draw(Engine.grp);
 
-            MyStack<int> S = new MyStack<int>();
+            /*MyStack<int> S = new MyStack<int>();
             for (int i = 1; i < 27; i++)
             {
                 S.Push(i);
@@ -33,6 +33,18 @@ namespace _06C_11_17_AOP
             {
                 S.Pop();
                 listBox1.Items.Add(S.Debug());
+            }*/
+
+            MyQueue<int> Q = new MyQueue<int>();
+            for (int i = 1; i < 27; i++)
+            {
+                Q.Push(i);
+                listBox1.Items.Add(Q.Debug());
+            }
+            for (int i = 0; i < 15; i++)
+            {
+                Q.Pop();
+                listBox1.Items.Add(Q.Debug());
             }
 
             Engine.Refresh();

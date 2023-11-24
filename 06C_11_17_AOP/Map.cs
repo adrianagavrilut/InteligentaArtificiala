@@ -48,7 +48,10 @@ namespace _06C_11_17_AOP
             {
                 for (int j = 0; j < map.m; j++)
                 {
-                    matrixToReturn[i, j] = map.values[i, j];
+                    if (map.values[i, j] == -1)
+                        matrixToReturn[i, j] = map.values[i, j];
+                    else
+                        matrixToReturn[i, j] = 0;
                 }
             }
             return matrixToReturn;

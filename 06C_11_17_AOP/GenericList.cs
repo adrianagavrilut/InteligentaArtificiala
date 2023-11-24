@@ -98,7 +98,23 @@ namespace _06C_11_17_AOP
     {
         public override T Pop()
         {
-            throw new NotImplementedException();
+            T tor = values[0];
+            for (int i = 1; i < count; i++)
+                values[i - 1] = values[i];
+            count--;
+
+            if (CheckForMemory())
+            {
+                T[] tmp = new T[values.Length - bufferSize];
+                for (int i = 0; i < count; i++)
+                {
+                    tmp[i] = values[i];
+                }
+                values = tmp;
+            }
+            return tor;
+
+
         }
     }
 }

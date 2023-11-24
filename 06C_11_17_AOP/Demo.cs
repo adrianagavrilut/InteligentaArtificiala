@@ -9,18 +9,25 @@ namespace _06C_11_17_AOP
     public class Demo
     {
         public static Random rnd = new Random();
-        int x, y, z;
+        public int l, c, v;
 
         public Demo()
         {
-            x = rnd.Next(10);
-            y = rnd.Next(10);
-            z = rnd.Next(10);
+            l = rnd.Next(10);
+            c = rnd.Next(10);
+            v = rnd.Next(10);
+        }
+
+        public Demo(int l, int c, int v)
+        {
+            this.l = l;
+            this.c = c;
+            this.v = v;
         }
 
         public override string ToString()
         {
-            return " (" + x + " " + y + " " + z + ") ";
+            return " (" + l + " " + c + " " + v + ") ";
         }
     }
 }
