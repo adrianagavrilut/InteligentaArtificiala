@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace _07C_11_24
 {
@@ -37,24 +32,26 @@ namespace _07C_11_24
                     if (values[i, j] == -1)
                         handler.FillRectangle(new SolidBrush(Color.Black), i * Engine.deltaX, j * Engine.deltaY, Engine.deltaX, Engine.deltaY);
                     if (values[i, j] > 0)
-                        handler.DrawString(values[i, j].ToString(), new Font("Arial", 10, FontStyle.Regular), new SolidBrush(Color.Red), new PointF(i * Engine.deltaX + 5, j * Engine.deltaY + 5));
+                        handler.DrawString(values[i, j].ToString(), new Font("Arial", 10, FontStyle.Regular), new SolidBrush(Color.Red), new PointF(i * Engine.deltaX + 2, j * Engine.deltaY + 3));
                 }
         }
 
-        public int[,] ConvertToMatrix(Map map)
+        public int[,] ConvertToMatrix()
         {
-            int[,] matrixToReturn = new int[map.n, map.m];
-            for (int i = 0; i < map.n; i++)
+            int[,] matrixToReturn = new int[this.n, this.m];
+            for (int i = 0; i < this.n; i++)
             {
-                for (int j = 0; j < map.m; j++)
+                for (int j = 0; j < this.m; j++)
                 {
-                    if (map.values[i, j] == -1)
-                        matrixToReturn[i, j] = map.values[i, j];
+                    if (this.values[i, j] == -1)
+                        matrixToReturn[i, j] = this.values[i, j];
                     else
                         matrixToReturn[i, j] = 0;
                 }
             }
             return matrixToReturn;
         }
+
+        
     }
 }

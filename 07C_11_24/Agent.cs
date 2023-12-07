@@ -1,36 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _07C_11_24
 {
     public abstract class Agent
     {
         public Point location;
+        Point target;
         public int ID;
         public List<Point> path;
-        Point startPoint;
-        Point target;
+
+        public Agent()
+        {
+            path = new List<Point>();
+        }
 
         public virtual void Draw(Graphics handler)
         {
             handler.DrawEllipse(Pens.Black, location.X * Engine.deltaX - 5, location.Y * Engine.deltaY - 5, 11, 11);
         }
 
-        public virtual void DeterminePath()
+        public virtual void Tick(Map map)
         {
-            startPoint = location;
-            target = new Point(Engine.n - 1, Engine.m - 1);
-            path = GetPathLee(target);
+            if (path.Count != 0)
+            {
+                if (CanMove())
+                {
+                    location = new Point(path[0].X, path[0].Y);
+                    path.RemoveAt(0);
+                }
+            }
+            else
+                Update(map);
         }
 
-        public virtual List<Point> GetPathLee(Point target)
+        public bool CanMove()//ToDo matrix update
+        {
+            return true;
+        }
+
+        public virtual void Update(Map map)
+        {
+            if (path.Count == 0)
+            {
+                SetTarget(map);
+            }
+        }
+
+        public void SetTarget(Map map)
+        {
+            int[,] matrix = map.ConvertToMatrix();
+            int n = matrix.GetLength(0);
+            int m = matrix.GetLength(1);
+            target = new Point(Engine.rnd.Next(n), Engine.rnd.Next(m));
+            path = GetPathLee(map, target);
+        }
+
+        public virtual List<Point> GetPathLee(Map map, Point target)
         {
             List<Point> pathLee = new List<Point>();
-            int[,] matrixCpy = getMatrixForPathLee(startPoint);
+            int[,] matrixCpy = GetMatrixForPathLee(map, location);
             Demo demo = new Demo(target.X, target.Y, matrixCpy[target.X, target.Y]);
             pathLee.Add(target);
             while (demo.v > 1)
@@ -40,7 +69,7 @@ namespace _07C_11_24
                     pathLee.Add(new Point(demo.l - 1, demo.c));
                     demo.l--;
                 }
-                else if (demo.l + 1 < Engine.n && matrixCpy[demo.l + 1, demo.c] == demo.v - 1)
+                else if (demo.l + 1 < map.n && matrixCpy[demo.l + 1, demo.c] == demo.v - 1)
                 {
                     pathLee.Add(new Point(demo.l + 1, demo.c));
                     demo.l++;
@@ -50,7 +79,7 @@ namespace _07C_11_24
                     pathLee.Add(new Point(demo.l, demo.c - 1));
                     demo.c--;
                 }
-                else if (demo.c + 1 < Engine.m && matrixCpy[demo.l, demo.c + 1] == demo.v - 1)
+                else if (demo.c + 1 < map.m && matrixCpy[demo.l, demo.c + 1] == demo.v - 1)
                 {
                     pathLee.Add(new Point(demo.l, demo.c + 1));
                     demo.c++;
@@ -59,9 +88,9 @@ namespace _07C_11_24
             }
             return pathLee;
         }
-        public static int[,] getMatrixForPathLee(Point startPoint)
+        public static int[,] GetMatrixForPathLee(Map map, Point startPoint)
         {
-            int[,] matrixCopy = GetMatrixCopy(Engine.matrix);
+            int[,] matrixCopy = GetMatrixCopy(map);
             MyQueue<Demo> A = new MyQueue<Demo>();
             A.Push(new Demo(startPoint.X, startPoint.Y, 1));
             matrixCopy[startPoint.X, startPoint.Y] = 1;
@@ -74,7 +103,7 @@ namespace _07C_11_24
                     A.Push(new Demo(t.l - 1, t.c, t.v + 1));
                     matrixCopy[t.l - 1, t.c] = t.v + 1;
                 }
-                if (t.l + 1 < Engine.n && matrixCopy[t.l + 1, t.c] == 0)//S
+                if (t.l + 1 < map.n && matrixCopy[t.l + 1, t.c] == 0)//S
                 {
                     A.Push(new Demo(t.l + 1, t.c, t.v + 1));
                     matrixCopy[t.l + 1, t.c] = t.v + 1;
@@ -84,7 +113,7 @@ namespace _07C_11_24
                     A.Push(new Demo(t.l, t.c - 1, t.v + 1));
                     matrixCopy[t.l, t.c - 1] = t.v + 1;
                 }
-                if (t.c + 1 < Engine.m && matrixCopy[t.l, t.c + 1] == 0)//E
+                if (t.c + 1 < map.m && matrixCopy[t.l, t.c + 1] == 0)//E
                 {
                     A.Push(new Demo(t.l, t.c + 1, t.v + 1));
                     matrixCopy[t.l, t.c + 1] = t.v + 1;
@@ -94,14 +123,15 @@ namespace _07C_11_24
         }
 
 
-        public static int[,] GetMatrixCopy(int[,] mtrx)
+        public static int[,] GetMatrixCopy(Map map)
         {
-            int[,] cpy = new int[Engine.n, Engine.m];
-            for (int i = 0; i < Engine.n; i++)
+            int[,] tmp = map.ConvertToMatrix();
+            int[,] cpy = new int[map.n, map.m];
+            for (int i = 0; i < map.n; i++)
             {
-                for (int j = 0; j < Engine.m; j++)
+                for (int j = 0; j < map.m; j++)
                 {
-                    cpy[i, j] = mtrx[i, j];
+                    cpy[i, j] = tmp[i, j];
                 }
             }
             return cpy;
@@ -115,7 +145,7 @@ namespace _07C_11_24
         public override void Draw(Graphics handler)
         {
             base.Draw(handler);
-            handler.DrawString("explorer", new Font("Arial", 8, FontStyle.Regular), new SolidBrush(Color.Blue), new PointF(location.X * Engine.deltaX, location.Y * Engine.deltaY));
+            handler.DrawString("explorer", new Font("Arial", 9, FontStyle.Bold), new SolidBrush(Color.Blue), new PointF(location.X * Engine.deltaX, location.Y * Engine.deltaY));
         }
     }
 
@@ -126,7 +156,7 @@ namespace _07C_11_24
         public override void Draw(Graphics handler)
         {
             base.Draw(handler);
-            handler.DrawString("exploiter", new Font("Arial", 8, FontStyle.Regular), new SolidBrush(Color.Red), new PointF(location.X * Engine.deltaX, location.Y * Engine.deltaY));
+            handler.DrawString("exploiter", new Font("Arial", 9, FontStyle.Bold), new SolidBrush(Color.Purple), new PointF(location.X * Engine.deltaX, location.Y * Engine.deltaY));
         }
     }
 
@@ -139,7 +169,7 @@ namespace _07C_11_24
         public override void Draw(Graphics handler)
         {
             base.Draw(handler);
-            handler.DrawString("transporter", new Font("Arial", 8, FontStyle.Regular), new SolidBrush(Color.Green), new PointF(location.X * Engine.deltaX, location.Y * Engine.deltaY));
+            handler.DrawString("transporter", new Font("Arial", 9, FontStyle.Bold), new SolidBrush(Color.Green), new PointF(location.X * Engine.deltaX, location.Y * Engine.deltaY));
         }
     }
 }

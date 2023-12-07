@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _07C_11_24
@@ -30,23 +27,25 @@ namespace _07C_11_24
             display.Image = bmp;
         }
 
+        public static void Clear()
+        {
+            grp.Clear(color);
+        }
+
         public static int deltaX = 20, deltaY = 20;
         public static Map demoMap;
         public static Random rnd = new Random();
         public static List<Agent> agents = new List<Agent>();
-        public static int[,] matrix;
-        public static int n;
-        public static int m;
 
         public static void InitDemo()
         {
             demoMap = new Map();
-            demoMap.Init(40, 60);
+            demoMap.Init(50, 30);
 
             for (int i = 0; i < 30; i++)
             {
-                demoMap.SpawnResources(rnd.Next(40), rnd.Next(60), rnd.Next(5, 100));
-                demoMap.SpawnDeadZone(rnd.Next(40), rnd.Next(60));
+                demoMap.SpawnResources(rnd.Next(50), rnd.Next(30), rnd.Next(5, 100));
+                demoMap.SpawnDeadZone(rnd.Next(50), rnd.Next(30));
             }
 
             agents.Add(new Explorer());
@@ -55,7 +54,7 @@ namespace _07C_11_24
             agents.Add(new Transporter());
 
             foreach (Agent agent in agents)
-                SetAgentOnMap(agent, rnd.Next(40), rnd.Next(60));
+                SetAgentOnMap(agent, rnd.Next(50), rnd.Next(30));
         }
 
         public static void SetAgentOnMap(Agent T, int x, int y)
@@ -70,13 +69,12 @@ namespace _07C_11_24
                 agent.Draw(handler);
         }
 
-        public static void InitLee()
+        public static void Tick(Map map)
         {
-            matrix = demoMap.ConvertToMatrix(demoMap);
-            n = matrix.GetLength(0);
-            m = matrix.GetLength(1);
             foreach (Agent agent in agents)
-                agent.DeterminePath();
+            {
+                agent.Tick(map);
+            }
         }
     }
 }
