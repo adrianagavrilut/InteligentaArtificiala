@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<document>
+	<question>
+		<title>
+		Rauri si fluvii
+		</title>
+		<domain>
+		Geografie
+		</domain>
+		<domain>
+		Ape
+		</domain>
+		<level>
+		4
+		</level>
+		<content>
+		Care este cel mai lung fluviu din Europa?
+		</content>
+		<answer>
+		Dunarea
+		</answer>
+		<answer>
+		Volga
+		</answer>
+		<answer>
+		Ural
+		</answer>
+		<answer>
+		Nipru
+		</answer>
+		<answer>
+		Don
+		</answer>
+		<correct>
+			<var>
+			1
+			</var>
+			<points>
+			100
+			</points>
+		</correct>
+	</question>
+	<question>
+		<title>
+		President of United States
+		</title>
+		<domain>
+		Politics
+		</domain>
+		<domain>
+		History
+		</domain>
+		<level>
+		5
+		</level>
+		<content>
+		Care din urmatorii au fost
+		Presedinti al
+		Statelor Unite ale Americii
+		</content>
+		<answer>
+		George Washigton
+		</answer>
+		<answer>
+		Ion Vasile
+		</answer>
+		<answer>
+		Donald Trump
+		</answer>
+		<answer>
+		Isokuru Yamamoto
+		</answer>
+		<answer>
+		Abraham Lincoln
+		</answer>
+		<correct>
+			<var>
+			0 2 4
+			</var>
+			<points>
+			100
+			</points>
+		</correct>
+		<correct>
+			<var>
+			0 2
+			</var>
+			<points>
+			20
+			</points>
+		</correct>
+		<correct>
+			<var>
+			0 4
+			</var>
+			<points>
+			20
+			</points>
+		</correct>
+		<correct>
+			<var>
+ 			2 4
+			</var>
+			<points>
+			20
+			</points>
+		</correct>
+		<correct>
+			<var>
+			0
+			</var>
+			<points>
+			10
+			</points>
+		</correct>
+		<correct>
+			<var>
+			2
+			</var>
+			<points>
+			10
+			</points>
+		</correct>
+		<correct>
+			<var>
+			4
+			</var>
+			<points>
+			10
+			</points>
+		</correct>
+	</question>
+	<question>
+		<title>
+		Pasari
+		</title>
+		<domain>
+		Zoologie
+		</domain>
+		<level>
+		1
+		</level>
+		<content>
+		Ce pasare este in imagine?
+		</content>
+		<image>
+		toucan.png
+		</image>
+		<source>
+		wikipedia
+		</source>
+		<answer>
+		Vrabie
+		</answer>
+		<answer>
+		Pasare rinocer
+		</answer>
+		<answer>
+		Tucan
+		</answer>
+		<correct>
+			<var>
+			2
+			</var>
+			<points>
+			100
+			</points>
+		</correct>
+	</question>  
+</document>
