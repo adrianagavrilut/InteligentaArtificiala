@@ -1,0 +1,10 @@
+Se da o matrice cu valori 0 si -x, unde -x reprezinta obstacole ce pot fi depasite (costul parcurgerii acestor obstacole este |x|)
+
+Pt examen:
+algorimti genetici si programare orientat pe agent
+
+1. program AOP: matrice neagra si un punct headquarters care psameaza lucratori care cauta-algorimt de cautare; + zona de poluare; apare extractorul care merge la cele mai mari valori(raport distanta/timp) si coloreaza patratelul cu poluare din rosu in verde; apare transportatorul care culege ce e cu verde.
+
+lee, monte carlo, stabilirea distantei, alg genetic
+
+2. un algoritm genetic - dispersia grafurilor/optimizarea grafurilor.
